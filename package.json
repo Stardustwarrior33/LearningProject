@@ -1,0 +1,19 @@
+{
+  "name": "first-app",
+  "version": "1.0.0",
+  "description": "Learning Fullstack JScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stardustwarrior33/LearningProject.git"
+  },
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Stardustwarrior33/LearningProject/issues"
+  },
+  "homepage": "https://github.com/Stardustwarrior33/LearningProject#readme"
+}
