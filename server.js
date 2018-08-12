@@ -1,22 +1,32 @@
-import http from "http";
-import { logStars } from "./config";
+import config from "./config";
+import apiRouter from "./api";
 
-const server = http.createServer();
+import express from "express";
 
-server.on("request", (req, res) =>{
-    res.write("Hello HTTP!\n");
-    setTimeout(() =>{
-        res.write("I can stream!\n");
-        res.end();
-    }, 3000);
-    let body = [];
-    req.on("data", (chunk) =>{
-        body.push(chunk);
-    }).on("end", () => {
-        body = Buffer.concat(body).toString();
-    }).on("error", (err) =>{
-        logStars(err.stack);
+const server = express();
+
+server.set("view engine", "ejs");
+
+server.get("/", (req, res) =>{
+    res.render("index", {
+        content: "Hello Express and <em>EJS</em>!"
     });
 });
 
-server.listen(8080);
+server.use("/api", apiRouter);
+server.use(express.static("public"));
+
+/*server.get("/about.html", (req, res) =>{
+    fs.readFile("public/about.html", (err, data) =>{
+        try{
+            res.send(data.toString());
+        }
+        catch(err){
+            res.send(console.error(err));
+        }
+    });
+}); */
+
+server.listen(config.port, () =>{
+    console.info(`Express listening on port ${config.port}`);
+});
