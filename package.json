@@ -4,7 +4,8 @@
   "description": "Learning Fullstack JScript",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon --exec babel-node server.js --ignore public/",
+    "dev": "webpack -wd"
   },
   "repository": {
     "type": "git",
