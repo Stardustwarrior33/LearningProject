@@ -4,15 +4,20 @@ import Header from './Header.js';
 import Content from './Content.js';
 
 
-const App = () => {
-  return (
-    <div className="App">
-      <Header message="Naming Contests" />
-      <div className="Content">
-        <Content />
+class App extends React.Component {
+  state = {
+    pageHeader: 'Naming Contest'
+  };
+  render() {
+    return (
+      <div className="App">
+        <Header message={this.state.pageHeader} />
+        <div className="Content">
+          <Content />
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default App;

@@ -1,17 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import logo from '../../assets/cb4.png';
 
-const Content = () => {
-  return(
-    <h3 className="Content-Text">
-      <img src={logo} alt="Meme" />
-    </h3>
-  );
-};
+class Content extends React.Component {
+  state = {
+    pic: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Cc.logo.circle.svg/2000px-Cc.logo.circle.svg.png'
+  };
+  render() {
+    return(
+      <h3 className="Content-Text">
+        <img src={this.state.pic} alt="Creative Commons" width="300" heigth="300"/>
+      </h3>
+    );
+  }
+}
 
 Content.propTypes = {
-  con: PropTypes.string
+  pic: PropTypes.string
 };
 
 export default Content;
